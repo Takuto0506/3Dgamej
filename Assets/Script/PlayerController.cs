@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gravityModifier;//重力値調整用
     [SerializeField] float jumpForce;//ジャンプ力
     [SerializeField] bool isOnGround;//地面についているか
+    [SerializeField] ParticleSystem explpsionParticle;
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground"))
         { 
             isOnGround = true;//地面についている状態に変更
+            explpsionParticle.Play();//再生
         }
     }
 }
